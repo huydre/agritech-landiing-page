@@ -12,22 +12,30 @@ export default function HeroSection() {
           backgroundPosition: "center 35%",
         }}
       />
-      {/* Soft bottom + edge wash to keep text legible without dimming the photo */}
+      {/* Mobile: full-area dark wash for legibility regardless of where text sits */}
       <div
         aria-hidden
-        className="absolute inset-0 -z-10"
+        className="absolute inset-0 -z-10 lg:hidden"
         style={{
           background:
-            "linear-gradient(180deg, rgba(14,36,24,0.18) 0%, rgba(14,36,24,0) 22%, rgba(14,36,24,0) 78%, rgba(14,36,24,0.55) 100%)",
+            "linear-gradient(180deg, rgba(10,15,11,0.55) 0%, rgba(10,15,11,0.45) 50%, rgba(10,15,11,0.7) 100%)",
         }}
       />
-      {/* Right-side text legibility wash */}
+      {/* Desktop: soft top/bottom + right-side wash so left half of photo breathes */}
       <div
         aria-hidden
-        className="absolute inset-y-0 right-0 -z-10 w-[60%]"
+        className="absolute inset-0 -z-10 hidden lg:block"
         style={{
           background:
-            "linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.18) 60%, rgba(0,0,0,0.32) 100%)",
+            "linear-gradient(180deg, rgba(14,36,24,0.22) 0%, rgba(14,36,24,0) 22%, rgba(14,36,24,0) 78%, rgba(14,36,24,0.6) 100%)",
+        }}
+      />
+      <div
+        aria-hidden
+        className="absolute inset-y-0 right-0 -z-10 hidden w-[60%] lg:block"
+        style={{
+          background:
+            "linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.25) 55%, rgba(0,0,0,0.45) 100%)",
         }}
       />
 
@@ -41,13 +49,18 @@ export default function HeroSection() {
               Vì một trái đất bền vững
             </div>
 
-            <h1 className="mt-6 text-[clamp(40px,5.4vw,80px)] font-semibold leading-[1.04] tracking-tight text-white">
+            <h1
+              className="mt-6 text-[clamp(36px,5.4vw,80px)] font-semibold leading-[1.06] tracking-tight text-white"
+              style={{ textShadow: "0 1px 24px rgba(0,0,0,0.35)" }}
+            >
               Gieo Tương Lai Bằng
-              <br />
-              Nông Nghiệp Bền Vững
+              <br className="hidden sm:inline" /> Nông Nghiệp Bền Vững
             </h1>
 
-            <p className="mt-6 max-w-xl text-[15px] leading-relaxed text-white/85">
+            <p
+              className="mt-6 max-w-xl text-[15px] leading-relaxed text-white/90"
+              style={{ textShadow: "0 1px 12px rgba(0,0,0,0.35)" }}
+            >
               Chúng tôi đồng hành cùng nông dân với phương pháp thân thiện môi
               trường, công cụ hiện đại và sứ mệnh chung nuôi dưỡng hành tinh,
               tự nhiên và đầy trách nhiệm.
